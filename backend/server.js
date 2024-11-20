@@ -12,7 +12,12 @@ app.use(express.json());
 app.use("/api/v1/auth", authRouter);
 
 
-app.listen(port, () =>{
-    console.log(`Server is running on port ${port}`)
-    connectDB()
+connectDB().then(()=> {
+    app.listen(port, () => {
+        console.log(`server is running on port ${port}`);
+        
+    })
+}).catch((err) => {
+    console.log(`failed to connect DB`, err);
+    process.exit(1)
 })
