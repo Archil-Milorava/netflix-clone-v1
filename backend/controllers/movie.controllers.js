@@ -43,11 +43,46 @@ export const getMovieDetails = async (req, res) => {
       `https://api.themoviedb.org/3/movie/${id}?language=en-US`
     );
 
-
     res.status(200).json({
       content: data,
     });
   } catch (error) {
     console.log("error from fetching movie details", error);
+  }
+};
+
+export const getSimillarMovies = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const data = await fetchMovies(
+      `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`
+    );
+
+    const simillarMovies = data.results;
+
+    res.status(200).json({
+      simillarMovies,
+    });
+  } catch (error) {
+    console.log("error from simillar movies", error);
+  }
+};
+
+export const getMovieByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+
+    const data = await fetchMovies(
+      `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`
+    );
+
+    const moviesByCategory = data.results;
+
+    res.status(200).json({
+      moviesByCategory,
+    });
+  } catch (error) {
+    console.log("error from fetchin movies by category", error);
   }
 };
