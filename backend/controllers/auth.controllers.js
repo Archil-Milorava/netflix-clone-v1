@@ -33,7 +33,7 @@ export const signUp = async (req, res) => {
 
     res.status(201).json({
       message: "User created successfully",
-      newUser: { ...user._doc, password: "" },
+      user: username,
     });
   } catch (error) {
     console.log(`error from sign up`, error);
@@ -62,11 +62,20 @@ export const login = async (req, res) => {
 
     generateTokenAndSetCookie(currentUser._id, res);
 
-    res.status(200).json({ success: true, message: "successfully logged in" });
+    res
+      .status(200)
+      .json({
+        success: true,
+        message: "successfully logged in",
+        user: {...currentUser._doc, password: ""},
+      });
   } catch (error) {
     console.log(`error from log in`, error);
   }
 };
+
+
+
 
 export const logout = async (req, res) => {
   try {

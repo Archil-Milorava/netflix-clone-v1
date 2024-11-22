@@ -22,6 +22,8 @@ const userSchema = mongoose.Schema({
         type: Array,
         default: []
     }
+}, {
+    timestamps: true
 })
 
 const User = new mongoose.model('user', userSchema)
