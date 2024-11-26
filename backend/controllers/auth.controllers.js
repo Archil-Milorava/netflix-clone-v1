@@ -52,6 +52,12 @@ export const login = async (req, res) => {
 
     const currentUser = await User.findOne({ email });
 
+    if (!currentUser) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Please enter valid credentials" });
+    }
+
     const passwordMatch = await bcrypt.compare(password, currentUser.password);
 
     if (!passwordMatch) {
@@ -62,13 +68,11 @@ export const login = async (req, res) => {
 
     generateTokenAndSetCookie(currentUser._id, res);
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "successfully logged in",
-        user: {...currentUser._doc, password: ""},
-      });
+    res.status(200).json({
+      success: true,
+      message: "successfully logged in",
+      user: { ...currentUser._doc, password: "" },
+    });
   } catch (error) {
     console.log(`error from log in`, error);
   }

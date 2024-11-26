@@ -6,6 +6,7 @@ import movieRouter from "./routes/movie.route.js";
 import tvRouter from "./routes/Tv.route.js";
 import cookieParser from "cookie-parser";
 import protectRoute from "./middleWare/protectRoutes.js";
+import searchRouter from "./routes/search.route.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,9 +14,11 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());
 
+
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/movies", protectRoute, movieRouter);
 app.use("/api/v1/tv", protectRoute, tvRouter);
+app.use("/api/v1/search",protectRoute, searchRouter)
 
 connectDB()
   .then(() => {
