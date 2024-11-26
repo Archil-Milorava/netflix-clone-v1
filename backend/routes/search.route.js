@@ -8,6 +8,6 @@ searchRouter.get('/person/:query', searchPerson)
 searchRouter.get('/movie/:query', searchMovies)
 searchRouter.get('/tv/:query', searchTv)
 searchRouter.get('/history', searchHistory )
-searchRouter.put('/history/:id',  deleteHistoryItem)
+searchRouter.delete('/history/:id',  deleteHistoryItem)
 
 export default searchRouter;

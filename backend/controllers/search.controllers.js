@@ -109,10 +109,11 @@ export const searchHistory = async (req, res) => {
 };
 
 export const deleteHistoryItem = async (req, res) => {
-  const { id } = req.params;
+  let { id } = req.params;
+
+  id = Number(id);
 
   try {
-
     if (!id) {
       return res
         .status(400)
@@ -122,9 +123,11 @@ export const deleteHistoryItem = async (req, res) => {
     const result = await User.findByIdAndUpdate(
       req.user._id,
       {
-        $pull: { searchHistory: id },
+        $pull: { searchHistory: { id: id } },
       },
-      { new: true }
+      {
+        new: true,
+      }
     );
 
     if (!result) {
