@@ -1,8 +1,10 @@
+import HomeScreen from "./Home/HomeScreen";
+import AuthScreen from "./Home/authScreen";
 
 const HomePage = () => {
-  return (
-    <div className='hero-bg h-screen'>HomePage</div>
-  )
-}
+  const user = false;
 
-export default HomePage
+  return <div>{user ? <HomeScreen /> : <AuthScreen />}</div>;
+};
+
+export default HomePage;
