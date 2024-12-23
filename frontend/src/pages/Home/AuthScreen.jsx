@@ -9,10 +9,13 @@ const AuthScreen = () => {
     <div className="hero-bg relative">
       {/* navbar */}
 
-      <header className="w-full sm:h-1/6 sm:flex sm:items-center sm:pl-56">
+      <header className="w-full  h-auto flex justify-around py-4 items-center">
         <Link to={"/"}>
-          <img src="/netflix-logo.png" alt="" className="w-40" />
+          <img src="/netflix-logo.png" alt="" className="w-40 mt-2" />
         </Link>
+        <button className="bg-red-500 rounded-sm p-1 tracking-wider text-white font-semibold text-sm">
+          Sign In
+        </button>
       </header>
 
       {/* hero section */}
@@ -22,7 +25,7 @@ const AuthScreen = () => {
           Unlimited movies, TV shows, and more
         </h1>
         <p className="text-lg mb-4">Watch anywhere. Cancel anytime.</p>
-        <p className="mb4">
+        <p className="mb-4">
           Ready to watch? Enter your email to create or restart membership.
         </p>
 
@@ -46,29 +49,33 @@ const AuthScreen = () => {
 
       {/* 1st section */}
 
-      <div className="py-10 bg-black text-white">
-        <div className="flex max-w 6xl mx-auto items-center md:flex-row flex-col px-4 md:px-2">
+      <div className="py-10 px-10 bg-black text-white">
+        <div className="flex max-w-6xl mx-auto items-center md:flex-row flex-col px-4 md:px-2 gap-4">
           {/* left side */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
               Enjoy on your TV
             </h2>
             <p className="text-lg md:text-xl">
-              Watch on Smart Tvs, PlayStation, Xbox, Chromecast, Apple TV,
-              Blue-ray players, and more.
+              Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
+              Blu-ray players, and more.
             </p>
           </div>
 
           {/* right side */}
-
           <div className="flex-1 relative">
-            <img src="/tv.png" alt="Tv image" className="mt-4 relative z-20" />
+            <img
+              src="/tv.png"
+              alt="TV image"
+              className="relative z-10 w-full h-auto"
+            />
+
             <video
               loop
               playsInline
               autoPlay
               muted
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 z-10"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%]"
             >
               <source src="/hero-vid.m4v" type="video/mp4" />
             </video>
@@ -129,32 +136,34 @@ const AuthScreen = () => {
       {/* 3rd section */}
 
       <div className="py-10 bg-black text-white">
-        <div className="flex max-w 6xl mx-auto items-center md:flex-row flex-col px-4 md:px-2">
-          {/* left side */}
+        <div className="flex max-w-6xl mx-auto items-center md:flex-row flex-col px-4 md:px-2 gap-4">
+          {/* Left side */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
               Watch everywhere
             </h2>
             <p className="text-lg md:text-xl">
-              Stream unlimited movies and TV shows on your phone, Tablet,
+              Stream unlimited movies and TV shows on your phone, tablet,
               laptop, and TV.
             </p>
           </div>
 
-          {/* right side */}
-
+          {/* Right side */}
           <div className="flex-1 relative overflow-hidden">
+            {/* Image */}
             <img
               src="/device-pile.png"
               alt="device"
-              className="mt-4 relative z-20"
+              className="relative z-50 w-full h-auto"
             />
+
+            {/* Video */}
             <video
               loop
               playsInline
               autoPlay
               muted
-              className="absolute top-2 left-1/2 -translate-x-1/2  h-4/6 z-10 max-w-[63%]"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[10rem] w-[63%] h-auto z-20"
             >
               <source src="/video-devices.m4v" type="video/mp4" />
             </video>

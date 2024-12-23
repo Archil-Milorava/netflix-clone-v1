@@ -7,13 +7,12 @@ import Footer from "./components/footer";
 const App = () => {
   return (
     <>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/signin" element={<SignInPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-
-    </Routes>
-    <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+      </Routes>
+      <Footer />
     </>
   );
 };
